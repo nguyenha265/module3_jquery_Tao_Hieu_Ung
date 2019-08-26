@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-1.12.4.min.js"
+            integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"
+            integrity="sha256-eGE6blurk5sHj+rmkfsGYeKyZx3M4bG+ZlFyA7Kns7E="
+            crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function(){
+            $("#hide").click(function(){
+                $("p").hide();
+            });
+            $("#show").click(function(){
+                $("p").show();
+            });
+            $("button").click(function(){
+                var div = $("div");
+                div.animate({left: '100px'}, "slow");
+                div.animate({fontSize: '100px'}, "slow");
+            });
+            $( "#div1" ).draggable();
+            $( "#div2" ).droppable({
+                drop: function( event, ui ) {
+                    $( this )
+                        .css("background-color", "yellow")
+                        .find( "p" )
+                        .html( "Dropped!" );
+                }
+            });
+        });
+
+    </script>
+    <style>
+        #div1 {
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-select: none; /* Safari */
+            -khtml-user-select: none; /* Konqueror HTML */
+            -moz-user-select: none; /* Firefox */
+            -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+            height: 100px;
+            width: 320px;
+            position: absolute;
+        }
+        #div2{
+            background: hotpink;
+            height: 600px;
+            width: 1320px;
+            margin-left: 350px;
+
+        }
+
+    </style>
+</head>
+<body>
+<p>If you click on the "Hide" button, I will disappear.</p>
+<button id="hide">Hide</button>
+<button id="show">Show</button>
+
+
+<button>Start Animation</button>
+<p>By default, all HTML elements have a static position, and cannot be moved. To manipulate the position, remember to first set the CSS position property of the element to relative, fixed, or absolute!</p>
+<div id="div1"><p>HELLO</p></div>
+
+<div id="div2"></div>
+
+</body>
+</html>
